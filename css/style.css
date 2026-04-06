@@ -214,39 +214,91 @@ h1 {
    CALCULADORA
 ======================================== */
 
-.calculator-inputs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.calculator-inputs input {
-    flex: 1;
-    padding: 15px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 18px;
-    text-align: center;
-}
-
-.operations {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-/* Resultado de la operación */
-.result {
-    text-align: center;
+.calculator-display {
+    width: 100%;
     padding: 20px;
-    background-color: #d4edda;
+    font-size: 28px;
+    text-align: right;
+    border: 2px solid #333;
     border-radius: 5px;
-    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: #f0f0f0;
+    font-weight: bold;
+    font-family: monospace;
 }
 
-#result-text {
-    font-size: 24px;
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.btn-num {
+    padding: 20px;
+    font-size: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
     font-weight: bold;
-    color: #155724;
+    transition: background-color 0.2s;
+}
+
+.btn-num:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-num:active {
+    background-color: #d0d0d0;
+}
+
+#btn-cero {
+    grid-column: span 3;
+}
+
+.operations-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.btn-operation {
+    background-color: #FF9500;
+    color: white;
+    margin: 0;
+    padding: 15px;
+}
+
+.btn-operation:hover {
+    background-color: #FF7700;
+}
+
+.btn-operation:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.btn-equals {
+    background-color: #28a745;
+    color: white;
+    padding: 15px;
+    margin: 0;
+}
+
+.btn-equals:hover {
+    background-color: #218838;
+}
+
+.btn-clear {
+    background-color: #dc3545;
+    color: white;
+    padding: 15px;
+    margin: 0;
+}
+
+.btn-clear:hover {
+    background-color: #c82333;
 }

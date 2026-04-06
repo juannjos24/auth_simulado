@@ -15,7 +15,7 @@
              Se muestra cuando el usuario NO está autenticado
         ======================================== -->
         <div id="login-section" class="section">
-            <h1>🔐 Iniciar Sesión</h1>
+            <h1>Iniciar Sesión</h1>
             <p class="subtitle">Ingresa tus credenciales para acceder</p>
             
             <form id="login-form">
@@ -37,13 +37,10 @@
             
             <!-- Información de usuarios disponibles -->
             <div class="info-box">
-                <h3>👥 Usuarios disponibles:</h3>
+                <h3>Usuarios disponibles:</h3>
                 <ul>
-                    <li><strong>sumador</strong> / 1234 → Solo puede sumar</li>
-                    <li><strong>restador</strong> / 1234 → Solo puede restar</li>
-                    <li><strong>multiplicador</strong> / 1234 → Solo puede multiplicar</li>
-                    <li><strong>divisor</strong> / 1234 → Solo puede dividir</li>
-                    <li><strong>admin</strong> / admin123 → Acceso completo</li>
+                    <li><strong>sumador</strong> / 1234 → Calculadora de sumas</li>
+                    <li><strong>multiplicador</strong> / 1234 → Calculadora de multiplicaciones</li>
                 </ul>
             </div>
         </div>
@@ -63,23 +60,32 @@
             <h1>🧮 Calculadora</h1>
             <p id="permissions-info" class="subtitle"></p>
             
-            <!-- Inputs para los números -->
-            <div class="calculator-inputs">
-                <input type="number" id="num1" placeholder="Número 1" value="10">
-                <input type="number" id="num2" placeholder="Número 2" value="5">
+            <!-- Display de la calculadora -->
+            <input type="text" id="display" class="calculator-display" readonly>
+            
+            <!-- Botones numéricos -->
+            <div class="calculator-grid">
+                <button class="btn-num" data-num="7">7</button>
+                <button class="btn-num" data-num="8">8</button>
+                <button class="btn-num" data-num="9">9</button>
+                
+                <button class="btn-num" data-num="4">4</button>
+                <button class="btn-num" data-num="5">5</button>
+                <button class="btn-num" data-num="6">6</button>
+                
+                <button class="btn-num" data-num="1">1</button>
+                <button class="btn-num" data-num="2">2</button>
+                <button class="btn-num" data-num="3">3</button>
+                
+                <button class="btn-num" data-num="0" id="btn-cero">0</button>
             </div>
             
-            <!-- Botones de operaciones -->
-            <div class="operations">
-                <button id="btn-suma" class="btn btn-operation" data-op="suma">Sumar</button>
-                <button id="btn-resta" class="btn btn-operation" data-op="resta">Restar</button>
-                <button id="btn-multiplicacion" class="btn btn-operation" data-op="multiplicacion">Multiplicar</button>
-                <button id="btn-division" class="btn btn-operation" data-op="division">Dividir</button>
-            </div>
-            
-            <!-- Resultado de la operación -->
-            <div id="result" class="result hidden">
-                <span id="result-text"></span>
+            <!-- Botones de operación y control -->
+            <div class="operations-row">
+                <button id="btn-suma" class="btn btn-operation">+</button>
+                <button id="btn-multiplicacion" class="btn btn-operation">×</button>
+                <button id="btn-igual" class="btn btn-equals">=</button>
+                <button id="btn-limpiar" class="btn btn-clear">C</button>
             </div>
             
             <!-- Mensaje cuando no tiene permiso -->
