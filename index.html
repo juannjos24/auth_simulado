@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora con Control de Acceso</title>
+    <!-- Enlace a nuestra hoja de estilos -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        
+        <!-- ========================================
+             SECCIÓN DE LOGIN
+             Se muestra cuando el usuario NO está autenticado
+        ======================================== -->
+        <div id="login-section" class="section">
+            <h1>🔐 Iniciar Sesión</h1>
+            <p class="subtitle">Ingresa tus credenciales para acceder</p>
+            
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" placeholder="Ej: sumador, multiplicador, admin">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" placeholder="Ingresa tu contraseña">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Entrar</button>
+            </form>
+            
+            <!-- Mensaje de error (oculto por defecto) -->
+            <p id="error-message" class="error hidden"></p>
+            
+            <!-- Información de usuarios disponibles -->
+            <div class="info-box">
+                <h3>👥 Usuarios disponibles:</h3>
+                <ul>
+                    <li><strong>sumador</strong> / 1234 → Solo puede sumar</li>
+                    <li><strong>restador</strong> / 1234 → Solo puede restar</li>
+                    <li><strong>multiplicador</strong> / 1234 → Solo puede multiplicar</li>
+                    <li><strong>divisor</strong> / 1234 → Solo puede dividir</li>
+                    <li><strong>admin</strong> / admin123 → Acceso completo</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ========================================
+             SECCIÓN DE CALCULADORA
+             Se muestra cuando el usuario SÍ está autenticado
+        ======================================== -->
+        <div id="calculator-section" class="section hidden">
+            <!-- Barra superior con info del usuario -->
+            <div class="user-bar">
+                <span id="user-info"></span>
+                <span id="token-display" class="token"></span>
+                <button id="logout-btn" class="btn btn-danger">Cerrar Sesión</button>
+            </div>
+            
+            <h1>🧮 Calculadora</h1>
+            <p id="permissions-info" class="subtitle"></p>
+            
+            <!-- Inputs para los números -->
+            <div class="calculator-inputs">
+                <input type="number" id="num1" placeholder="Número 1" value="10">
+                <input type="number" id="num2" placeholder="Número 2" value="5">
+            </div>
+            
+            <!-- Botones de operaciones -->
+            <div class="operations">
+                <button id="btn-suma" class="btn btn-operation" data-op="suma">Sumar</button>
+                <button id="btn-resta" class="btn btn-operation" data-op="resta">Restar</button>
+                <button id="btn-multiplicacion" class="btn btn-operation" data-op="multiplicacion">Multiplicar</button>
+                <button id="btn-division" class="btn btn-operation" data-op="division">Dividir</button>
+            </div>
+            
+            <!-- Resultado de la operación -->
+            <div id="result" class="result hidden">
+                <span id="result-text"></span>
+            </div>
+            
+            <!-- Mensaje cuando no tiene permiso -->
+            <p id="no-permission" class="error hidden">No tienes permiso para esta operación</p>
+        </div>
+        
+    </div>
+
+    <!-- Enlace a nuestro archivo JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
